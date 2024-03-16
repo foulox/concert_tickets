@@ -36,6 +36,7 @@ def scrape_concerts(url):
         # fetched_concerts.append({'name': name, 'date': date, 'location': location})
         fetched_concerts.append({'headliner': headliner})
         fetched_concerts.append({'support': support})
+        fetched_concerts.append({'venue': venue})
     return fetched_concerts
 
 # Example URL, replace with the actual Bowery Presents schedule page
