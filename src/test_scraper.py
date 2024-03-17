@@ -22,22 +22,27 @@ def scrape_concerts(url):
     # Assuming concerts are listed in <div class="concert-info">
     # <div class="event-information-wrapper">
     # (This will vary based on actual website structure)
-    concerts = soup.find_all('div', class_='event-information-wrapper')
-    fetched_concerts = []
-    for concert in concerts:
-        # Extract necessary information, e.g., band name, date,
-        # location. This depends on the website's HTML structure.
-        #  <span class="event-topline event-text">
-        headliner = concert.find('h4', class_="event-headliner event-text").text
-        support = concert.find('h5', class_="event-support event-text").text
-        venue = concert.find('p', class_="event-venue event-text").text
-        # date = concert.find('span', class_='date').text
-        # location = concert.find('span', class_='location').text
-        # fetched_concerts.append({'name': name, 'date': date, 'location': location})
-        fetched_concerts.append({'headliner': headliner})
-        fetched_concerts.append({'support': support})
-        fetched_concerts.append({'venue': venue})
-    return fetched_concerts
+    # concert_dates = soup.find_all('h3', class_='calendar-day-title')
+    # for concert_date in concert_dates:
+    e = 0
+    
+    concert_dates = soup.find_all('li',class_='calendar-day')
+    print("concert dates length=" + str(len(concert_dates)))
+    for concert_date in concert_dates:
+        calendar_day = concert_date.find('h3', class_='calendar-day-title').string
+        print(calendar_day)
+        concerts = concert_date.find_all('div', class_='event-information-wrapper')
+        for concert in concerts:
+            headliner = concert.find('h4', class_="event-headliner event-text").text
+            support = concert.find('h5', class_="event-support event-text").text
+            venue = concert.find('p', class_="event-venue event-text").text
+            print(headliner)
+            print(support)
+            print(venue)
+            e += 1
+            print(e)
+        print("NEXT")
+    return concert_dates
 
 # Example URL, replace with the actual Bowery Presents schedule page
 CONCERTS_URL = 'https://www.bowerypresents.com/calendar/'
