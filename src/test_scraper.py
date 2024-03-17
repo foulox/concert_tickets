@@ -41,7 +41,6 @@ def scrape_concerts(url):
             print(venue)
             e += 1
             print(e)
-        print("NEXT")
     return concert_dates
 
 # Example URL, replace with the actual Bowery Presents schedule page
