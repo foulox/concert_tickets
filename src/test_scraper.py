@@ -47,5 +47,4 @@ def scrape_concerts(url):
 # Example URL, replace with the actual Bowery Presents schedule page
 CONCERTS_URL = 'https://www.bowerypresents.com/calendar/'
 concert_list = scrape_concerts(CONCERTS_URL)
-print(concert_list)
 # updated to commit changes
