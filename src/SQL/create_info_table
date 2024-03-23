@@ -1,0 +1,11 @@
+CREATE TABLE "info" (
+	"ID"	INTEGER NOT NULL UNIQUE,
+	"Venue"	TEXT NOT NULL,
+	"Headliner"	TEXT NOT NULL,
+	"Support"	TEXT,
+	"Concert_Date"	TEXT,
+	"Modified_Date"	TEXT,
+	"Create_A_Date"	TEXT,
+	UNIQUE("Venue","Headliner","Concert_Date"),
+	PRIMARY KEY("ID")
+);
